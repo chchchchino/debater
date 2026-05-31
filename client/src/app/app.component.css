@@ -1,0 +1,100 @@
+/* Modern font adjustments and tracking */
+.tracking-wider {
+  letter-spacing: 0.08em;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Premium speech bubble fade-in animation */
+@keyframes bubbleAppear {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.max-w-75 {
+  animation: bubbleAppear 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* Custom Scrollbar for sleek, premium chat container */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* Theme color modifications for sleek, modern appearance */
+.bg-dark {
+  background-color: #1e293b !important; /* slate-800 */
+}
+
+.navbar-dark {
+  background-color: #0f172a !important; /* slate-900 */
+}
+
+.bg-light {
+  background-color: #f8fafc !important; /* slate-50 */
+}
+
+.card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Accent colors for debaters and turns */
+.bg-primary-subtle {
+  background-color: rgba(13, 110, 253, 0.08) !important;
+  color: #0d6efd !important;
+}
+
+.bg-success-subtle {
+  background-color: rgba(25, 135, 84, 0.08) !important;
+  color: #198754 !important;
+}
+
+/* Dark mode bubbles */
+.bg-dark.text-white {
+  background-color: #0f172a !important; /* slate-900 */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* White bubble styling */
+.bg-white.text-dark {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important; /* slate-200 */
+}
+
+/* Spinner and Typing Loader customizations */
+.spinner-grow-sm {
+  width: 0.75rem;
+  height: 0.75rem;
+  animation-duration: 0.85s;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.15);
+}

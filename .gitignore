@@ -1,0 +1,50 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+venv/
+env/
+.env
+ENV/
+bin/
+lib/
+develop-eggs/
+dist/
+build/
+*.egg-info/
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# IDE / Editor specific
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Secrets / Environment variables
+.env
+.venv
+
+# Angular client (client/)
+client/node_modules/
+client/dist/
+client/.angular/
+client/out-tsc/
+client/bazel-out/
+client/coverage/
+client/tmp/
+client/.sass-cache/
+client/npm-debug.log
+client/yarn-error.log
+client/testem.log
+client/libpeerconnection.log
+client/connect.lock
+client/typings/
