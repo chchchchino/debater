@@ -4,7 +4,7 @@ This is the Python backend for the Real-Time AI Debate application. It uses **Fa
 
 ## Prerequisites
 
-- **Python 3.10+**
+- **Python 3.12+**
 - **UV** (Python package installer and resolver)
 
 ## Installation & Setup
@@ -36,6 +36,8 @@ The server will be available at `http://localhost:8000`. You can access the inte
 ### `POST /api/debate`
 
 Executes a single superstep in the debate graph. It receives the entire debate state, invokes the active debater's turn using OpenAI, updates the conversation history, and toggles the active turn to the other debater.
+
+The endpoint is designed for the Angular client, which submits the current debate state once per button press and renders the returned messages immediately.
 
 #### Request Body
 ```json

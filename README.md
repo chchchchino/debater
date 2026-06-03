@@ -1,13 +1,13 @@
 # Real-Time AI Debate Web Application
 
-This web application allows two AI debaters to debate a subject in real time. The frontend is built with **Angular** and styled using **Bootstrap**. The backend is built with **Python FastAPI** and orchestrates the turn-based debate using a **LangGraph** workflow powered by OpenAI's `gpt-4o-mini` model.
+This web application allows two AI debaters to debate a subject turn by turn. The frontend is built with **Angular** and styled using **Bootstrap**. The backend is built with **Python FastAPI** and orchestrates the debate using a **LangGraph** workflow powered by OpenAI's `gpt-4o-mini` model.
 
 ## Features
 
 - **Dynamic Debaters**: Set the names of any two debaters (e.g., Socrates vs Aristotle, Iron Man vs Batman).
 - **Subject Definition**: Type in any topic to debate.
-- **Real-Time Interactive Debate**: Watch the debate unfold turn-by-turn with realistic speech bubbles and automatic scrolling.
-- **Debate Controls**: Start, pause, resume, or reset the debate at any point.
+- **Interactive Debate**: Watch the debate unfold turn-by-turn with realistic speech bubbles and automatic scrolling.
+- **Debate Controls**: Start the debate, advance to the next turn, or reset the arena.
 - **LangGraph Orchestration**: The entire state of the debate is passed back and forth, with the backend running a superstep to toggle speaker turns and generate replies.
 
 ---
@@ -53,3 +53,5 @@ npm run start
 ```
 
 The frontend will be available at `http://localhost:4200`. Open your browser and navigate there to start debating!
+
+The client is configured to talk to the backend at `http://localhost:8000` by default.
