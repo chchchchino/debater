@@ -1,7 +1,8 @@
-import { Component, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewChecked, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { API_BASE_URL } from './api.config';
 
 interface Message {
   sender: string;
@@ -39,13 +40,20 @@ export class AppComponent implements AfterViewChecked {
   debateStarted: boolean = false;
   isGenerating: boolean = false;
   errorMessage: string = '';
+  private previousMessageCount = 0;
 
   @ViewChild('scrollContainer') private scrollContainer!: ElementRef;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    @Inject(API_BASE_URL) private apiBaseUrl: string
+  ) {}
 
   ngAfterViewChecked() {
-    this.scrollToBottom();
+    if (this.messages.length !== this.previousMessageCount) {
+      this.previousMessageCount = this.messages.length;
+      this.scrollToBottom();
+    }
   }
 
   scrollToBottom(): void {
@@ -79,19 +87,16 @@ export class AppComponent implements AfterViewChecked {
     };
 
     // Call our Python FastAPI server endpoint
-    this.http.post<DebateState>('http://localhost:8000/api/debate', payload)
+    this.http.post<DebateState>(`${this.apiBaseUrl}/api/debate`, payload)
       .subscribe({
         next: (response) => {
           this.messages = response.messages;
           this.currentTurn = response.current_turn;
           this.isGenerating = false;
-
-          // Scroll immediately to capture new speech bubble
-          setTimeout(() => this.scrollToBottom(), 50);
         },
         error: (error) => {
           this.isGenerating = false;
-          this.errorMessage = 'Could not communicate with the debate server. Please make sure the backend is running at http://localhost:8000 and the OpenAI API key is set.';
+          this.errorMessage = `Could not communicate with the debate server. Please make sure the backend is running at ${this.apiBaseUrl} and the OpenAI API key is set.`;
           console.error('Debate API Error:', error);
         }
       });
@@ -102,4 +107,3 @@ export class AppComponent implements AfterViewChecked {
     return senderName.toLowerCase() === this.debater1.toLowerCase();
   }
 }
-
