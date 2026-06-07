@@ -1,6 +1,11 @@
 # Real-Time AI Debate Web Application
 
-This web application allows two AI debaters to debate a subject turn by turn. The frontend is built with **Angular** and styled using **Bootstrap**. The backend is built with **Python FastAPI** and orchestrates the debate using a **LangGraph** workflow powered by OpenAI's `gpt-4o-mini` model.
+This web application allows two AI debaters to debate a subject turn by turn. The repo now includes two frontend clients that share the same backend contract and visual style:
+
+- `client/`: Angular frontend
+- `react-client/`: React frontend
+
+Both frontends are styled with **Bootstrap** and talk to the same **Python FastAPI** backend, which orchestrates the debate using a **LangGraph** workflow powered by OpenAI's `gpt-4o-mini` model.
 
 ## Features
 
@@ -15,6 +20,7 @@ This web application allows two AI debaters to debate a subject turn by turn. Th
 ## Directory Structure
 
 - `client/`: Angular frontend application.
+- `react-client/`: React frontend application.
 - `server/`: Python FastAPI backend server.
 
 ---
@@ -38,7 +44,11 @@ uv run uvicorn main:app --reload --port 8000
 
 The backend will run on `http://localhost:8000`.
 
-### 2. Run the Frontend Client
+### 2. Run a Frontend Client
+
+You can use either frontend. Pick the one you want to run:
+
+#### Angular Client
 
 Navigate to the `client` directory, install dependencies, and start the development server:
 
@@ -52,6 +62,19 @@ npm install
 npm run start
 ```
 
-The frontend will be available at `http://localhost:4200`. Open your browser and navigate there to start debating!
+The Angular frontend will be available at `http://localhost:4200`.
 
-The client is configured to talk to the backend at `http://localhost:8000` by default.
+#### React Client
+
+Navigate to the `react-client` directory, install dependencies, and start the development server:
+
+```bash
+cd react-client
+
+npm install
+npm run start
+```
+
+The React frontend will be available at `http://localhost:5173` by default.
+
+Both clients are configured to talk to the backend at `http://localhost:8000` by default.
